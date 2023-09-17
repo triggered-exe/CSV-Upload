@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const csv = require("csv-parser");
+require('dotenv').config();
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static('assets'));
 
