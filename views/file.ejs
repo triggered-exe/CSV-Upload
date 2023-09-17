@@ -1,0 +1,50 @@
+<style>
+    table{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50px;
+        
+    }
+</style>
+<table border="1">
+    
+    <thead>
+        <tr>
+            <% Object.keys(data[0]).forEach((key) => { %>
+                <th>
+                    <%= key %>
+                    <button onclick="sortTable('<%= key %>')">↑</button>
+                    <button onclick="sortTable('<%= key %>', 'desc')">↓</button>
+                </th>
+            <% }); %>
+        </tr>
+    </thead>
+    
+    
+    <tbody>
+        <% data.forEach((row, index) => { %>
+             <tr>
+                <% Object.entries(row).forEach(([key, value]) => { %>
+                    <td data-column="<%= key %>"><%= value %></td>
+                <% }); %>
+            </tr>
+        <% }); %>
+    </tbody>
+
+</table>
+
+
+
+<div class="file-list">
+    <button id="closeList" class="close-button">Close</button>
+    <h2>Existing Files:</h2>
+    <% if (files) { %>
+
+      <% files.forEach(file => { %>
+          <a href="/open/<%=file  %>"><p><%= file %></p></a>
+      <% }) %>
+
+    <% } %>
+</div>
+

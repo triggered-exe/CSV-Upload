@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Upload CSV Files</h1>
+
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="csvFile" class="file-label">Choose a CSV file:</label>
+    <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
+    <button type="submit" class="upload-button">Upload</button>
+  </form>
+</div>
+
+
+<div class="file-list">
+    <button id="closeList" class="close-button">Close</button>
+    <h2>Existing Files:</h2>
+    <% if (files) { %>
+
+      <% files.forEach(file => { %>
+          <a href="/open/<%=file  %>"><p><%= file %></p></a>
+      <% }) %>
+
+    <% } %>
+</div>
