@@ -10,7 +10,6 @@ app.use(express.static('assets'));
 
 app.use(express.urlencoded());
 
-
 //set templating engine
 app.use(expressLayouts);
 
